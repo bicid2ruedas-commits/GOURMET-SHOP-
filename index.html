@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Shop | Menú Completo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --dorado: #b08d57; --oscuro: #1a1a1a; --crema: #fdfdfd; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--crema); color: var(--oscuro); padding-bottom: 130px; }
+        header { background: var(--oscuro); color: var(--dorado); padding: 1.5rem; text-align: center; border-bottom: 3px solid var(--dorado); }
+        h1 { font-family: 'Playfair Display', serif; margin: 0; font-size: 1.8rem; }
+        .contenedor { max-width: 600px; margin: auto; padding: 15px; }
+        
+        /* Galería */
+        .galeria { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+        .galeria img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        /* Estilos de Menú */
+        .seccion-titulo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; border-bottom: 2px solid var(--dorado); padding-bottom: 5px; margin: 30px 0 15px 0; text-align: center; }
+        .sub { font-weight: 600; color: var(--dorado); margin: 15px 0 8px 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; background: #f4f4f4; padding: 5px 10px; border-radius: 4px; }
+        .producto { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #eee; background: #fff; margin-bottom: 2px; }
+        .info-p h3 { margin: 0; font-size: 0.95rem; color: #333; }
+        .info-p p { margin: 2px 0 0 0; font-size: 0.75rem; color: #777; line-height: 1.2; }
+        .precio { color: var(--dorado); font-weight: bold; font-size: 1.05rem; white-space: nowrap; margin-left: 10px; }
+        .btn-add { background: var(--oscuro); color: white; border: none; padding: 8px 12px; border-radius: 20px; font-size: 0.7rem; cursor: pointer; margin-top: 5px; }
+
+        /* Barra de Pedido */
+        .barra-fija { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -3px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 3px solid var(--dorado); }
+        .total-txt { font-size: 1.3rem; font-weight: bold; color: var(--oscuro); }
+        .btn-wa { background: #25d366; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GOURMET SHOP</h1>
+    <p>Narvarte • Pedidos: 5532707135</p>
+</header>
+
+<div class="contenedor">
+    <div class="galeria">
+        <img src="https://i.postimg.cc/xdsfTdfd/20241026-144006.jpg" alt="Charola">
+        <img src="https://i.postimg.cc/nLdFcLFt/20241026-144017-2.jpg" alt="Baguette">
+        <img src="https://i.postimg.cc/1tCQP7Kv/20241026-144024-2.jpg" alt="Tapas">
+        <img src="https://i.postimg.cc/Jn4LfCZ2/20241026-144028.jpg" alt="Detalle">
+    </div>
+
+    <div style="background:#fff3cd; padding:10px; border-radius:5px; font-size:0.75rem; text-align:center; margin-bottom:20px;">
+        📍 Tajín 342, Narvarte Poniente. <br>
+        ⚠️ Anticipo del 80% en compras mayores. Mínimo Tapas: $150.
+    </div>
+
+    <h2 class="seccion-titulo">Charolas</h2>
+    <div class="sub">Reuniones Pequeñas</div>
+    <div class="producto"><div class="info-p"><h3>Para 2 Personas</h3><p>4 ingredientes de 50g c/u</p><button class="btn-add" onclick="add('Charola 2 Pers.', 235)">AGREGAR</button></div><span class="precio">$235</span></div>
+    <div class="producto"><div class="info-p"><h3>Para 4 Personas</h3><p>4 ingredientes de 90g c/u</p><button class="btn-add" onclick="add('Charola 4 Pers.', 360)">AGREGAR</button></div><span class="precio">$360</span></div>
+    
+    <div class="sub">Grupos (2hr anticipación)</div>
+    <div class="producto"><div class="info-p"><h3>Para 8 Personas</h3><p>4 ingredientes de 160g c/u</p><button class="btn-add" onclick="add('Charola 8 Pers.', 590)">AGREGAR</button></div><span class="precio">$590</span></div>
+    <div class="producto"><div class="info-p"><h3>Para 12 Personas</h3><p>4 ingredientes de 210g c/u</p><button class="btn-add" onclick="add('Charola 12 Pers.', 760)">AGREGAR</button></div><span class="precio">$760</span></div>
+
+    <h2 class="seccion-titulo">Baguettes</h2>
+    <div class="sub">Sencilla - $139</div>
+    <div class="producto"><div class="info-p"><h3>Canadiense</h3><p>Lomo canadiense 80g, manchego, aguacate</p><button class="btn-add" onclick="add('Baguette Canadiense', 139)">AGREGAR</button></div><span class="precio">$139</span></div>
+    <div class="producto"><div class="info-p"><h3>Suiza</h3><p>Mezcla de quesos (60g c/u), aguacate</p><button class="btn-add" onclick="add('Baguette Suiza', 139)">AGREGAR</button></div><span class="precio">$139</span></div>
+
+    <div class="sub">Especial - $159</div>
+    <div class="producto"><div class="info-p"><h3>Momento Verde ★</h3><p>Selva negra, dip queso azul, uvas y nueces</p><button class="btn-add" onclick="add('Baguette Momento Verde', 159)">AGREGAR</button></div><span class="precio">$159</span></div>
+    <div class="producto"><div class="info-p"><h3>Española ★</h3><p>Chorizo español 200g, aguacate y manchego</p><button class="btn-add" onclick="add('Baguette Española', 159)">AGREGAR</button></div><span class="precio">$159</span></div>
+
+    <div class="sub">Premium / Élite</div>
+    <div class="producto"><div class="info-p"><h3>Higuera (Premium)</h3><p>Serrano 80g, cabra e higo en almíbar</p><button class="btn-add" onclick="add('Baguette Higuera', 179)">AGREGAR</button></div><span class="precio">$179</span></div>
+    <div class="producto"><div class="info-p"><h3>Roast Beef (Élite)</h3><p>Roast beef 80g, manchego y pantomate</p><button class="btn-add" onclick="add('Baguette Roast Beef', 199)">AGREGAR</button></div><span class="precio">$199</span></div>
+
+    <h2 class="seccion-titulo">Tapas</h2>
+    <div class="producto"><div class="info-p"><h3>Tapa Sencilla</h3><p>Salami-Gouda / Emmental-Jitomate / Lomo-Aceitunas</p><button class="btn-add" onclick="add('Tapa Sencilla', 35)">AGREGAR</button></div><span class="precio">$35</span></div>
+    <div class="producto"><div class="info-p"><h3>Tapa Especial</h3><p>Selva negra, uvas, dip queso azul y nuez</p><button class="btn-add" onclick="add('Tapa Especial', 40)">AGREGAR</button></div><span class="precio">$40</span></div>
+    <div class="producto"><div class="info-p"><h3>Tapa Premium</h3><p>Serrano-Manchego / Cabra e Higo</p><button class="btn-add" onclick="add('Tapa Premium', 45)">AGREGAR</button></div><span class="precio">$45</span></div>
+    <div class="producto"><div class="info-p"><h3>Tapa Élite</h3><p>Roast Beef-Manchego / Pavo-Pesto-Aguacate</p><button class="btn-add" onclick="add('Tapa Élite', 55)">AGREGAR</button></div><span class="precio">$55</span></div>
+</div>
+
+<div class="barra-fija">
+    <div><span style="font-size:0.7rem; color:#666;">Total pedido:</span><br><span id="total" class="total-txt">$0</span></div>
+    <button class="btn-wa" onclick="enviar()">PEDIR POR WA 📱</button>
+</div>
+
+<script>
+    let carrito = [];
+    let monto = 0;
+    function add(n, p) {
+        carrito.push(n);
+        monto += p;
+        document.getElementById('total').innerText = '$' + monto;
+    }
+    function enviar() {
+        if (monto === 0) { alert("Agrega algo al pedido"); return; }
+        let resumen = "";
+        let conteo = {};
+        carrito.forEach(x => { conteo[x] = (conteo[x] || 0) + 1; });
+        for (let k in conteo) { resumen += `• ${conteo[k]}x ${k}\n`; }
+        let msg = `¡Hola Gourmet Shop! 👋\nQuiero este pedido para recoger en Tajín 342:\n\n${resumen}\n💰 TOTAL: $${monto}`;
+        window.location.href = "https://api.whatsapp.com/send?phone=525532707135&text=" + encodeURIComponent(msg);
+    }
+</script>
+
+</body>
+</html>
